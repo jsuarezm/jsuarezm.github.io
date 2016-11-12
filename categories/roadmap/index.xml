@@ -26,24 +26,24 @@ But the real motivation is, why we are considering DevOps? It is because we simp
 &lt;p&gt;According to Wikipedia:&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;&amp;ldquo;&lt;strong&gt;Devops&lt;/strong&gt; (a clipped compound of development and operations) is a culture, movement or practice that emphasizes the collaboration and communication of both software developers and other information  technology (IT) professionals while automating the process of software delivery and infrastructure changes.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;&lt;strong&gt;DevOps&lt;/strong&gt; (a clipped compound of development and operations) is a culture, movement or practice that emphasizes the collaboration and communication of both software developers and other information  technology (IT) professionals while automating the process of software delivery and infrastructure changes.&amp;rdquo;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;Gene Kim defines DevOps as:&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;&amp;ldquo;&lt;strong&gt;DevOps&lt;/strong&gt; refers to the emerging professional  movement that advocates a collaborative working relationship between Development and IT Operations, resulting in the fast flow of planned work (i.e., high deploy rates), while simultaneously increasing reliability, stability, resilience of the production environment.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;&lt;strong&gt;DevOps&lt;/strong&gt; refers to the emerging professional  movement that advocates a collaborative working relationship between Development and IT Operations, resulting in the fast flow of planned work (i.e., high deploy rates), while simultaneously increasing reliability, stability and the resilience of the production environment.&amp;rdquo;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h2 id=&#34;pathology-of-a-dysfunctional-it&#34;&gt;Pathology of a dysfunctional IT&lt;/h2&gt;
 
-&lt;p&gt;The activities inside IT are performed by many groups of professionals, but as all activities require to perform touch cross-functional points in order to develop and deliver the products and provides the services expected by customers. When those groups haven&amp;rsquo;t got a real communication neither collaboration between them, we have a dysfunction in the coordination of such activities. Although each group tries to reach an excellent performance, they will put in risk the output of the activities because of the lack of coordination and agreement. We can detect this dysfunctional behavior when we frequently meet the &amp;ldquo;them-us&amp;rdquo; culture within each group. Another symptom is the passionate defense of their particular results and the blame to the other group. In this context we have a group of Developers blaming to IT Operators, and viceversa. These dysfunctional behaviors evidence a conflict between the groups that the Company needs to overcome to reach the quality expected in its products and services. Each group need to learn to work as one unique &lt;strong&gt;Team&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The activities inside IT are performed by many groups of professionals, but as all activities require to perform touch cross-functional points in order to develop and deliver the products and provides the services expected by customers. When those groups haven&amp;rsquo;t got a real communication or collaboration between them, we have a dysfunction in the coordination of such activities. Although each group tries to reach an excellent performance, they will put in risk the output of the activities because of the lack of coordination and agreement. We can detect this dysfunctional behavior when we frequently meet the &amp;ldquo;them-us&amp;rdquo; culture within each group. Another symptom is the passionate defense of their particular results and the blame to the other group. In this context, we have a group of Developers blaming to IT Operators and vice-versa. These dysfunctional behaviors evidence a conflict between the groups that the Company needs to overcome to reach the quality expected in its products and services. Each group needs to learn to work as one unique &lt;strong&gt;Team&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;h2 id=&#34;the-roadmap&#34;&gt;The Roadmap&lt;/h2&gt;
 
 &lt;h3 id=&#34;1-tear-down-the-wall&#34;&gt;1. Tear down the wall&lt;/h3&gt;
 
-&lt;p&gt;A successful implementation of DevOps require to be treated as a &lt;strong&gt;cultural change rather than a technological change&lt;/strong&gt;. In some cases this change is like a &lt;strong&gt;peace negotiation&lt;/strong&gt;. As all cultural change it is necessary start assembling a tiny cross functional team (Developers and IT Operators together), where each individual has a will to change. The commitment from this team to sustain a sane conversation, without blaming, is key to overcome the conflicts. The team have the responsibility to identify and justify the need of change, rationalize the root causes of their problems, sharing and converging to a clear vision. If the level of conflictivity is too high, it would be necessary to get an external mediator with the experience in conflict management. With a clear vision is time to convince to one sponsor by looking for a top management support to this change initiative. At this time, it is necessary to note that there is not a proposal, only good intentions to look for solutions. The initial proposal should be the development of one strategy for improvement.&lt;/p&gt;
+&lt;p&gt;A successful implementation of DevOps requires being treated as a &lt;strong&gt;cultural change rather than a technological change&lt;/strong&gt;. In some cases, this change is like a &lt;strong&gt;peace negotiation&lt;/strong&gt;. As all cultural change, it is necessary to start assembling a tiny cross functional team (Developers and IT Operators together), where each individual has the will to change. The commitment from this team to sustain a sane conversation, without blaming, is key to overcoming the conflicts. The team has the responsibility to identify and justify the need for change, rationalize the root causes of their problems, sharing and converging to a clear vision. If the level of conflict is too high, it would be necessary to get an external mediator with the experience in conflict management. With a clear vision is time to convince to one sponsor by looking for a top management support to this change initiative. At this time, it is necessary to note that there is not a proposal, only good intentions to look for solutions. The initial proposal should be the development of one strategy for improvement.&lt;/p&gt;
 
 &lt;h3 id=&#34;2-the-strategic-thinking-approach&#34;&gt;2. The strategic thinking approach&lt;/h3&gt;
 
@@ -57,15 +57,15 @@ But the real motivation is, why we are considering DevOps? It is because we simp
 &lt;li&gt;So the first is to list the internal clients and someone who understand the external client.&lt;/li&gt;
 &lt;li&gt;Invite your clients (no more than nine) to the meeting and list the activities that integrate the workflow coming from the request for a product or service (performed by the external client) until the delivery of goods or services to the customer. This is a &lt;strong&gt;client-centric&lt;/strong&gt; workflow. Consider to use a collaborative tool.&lt;/li&gt;
 &lt;li&gt;Then it is possible to detail a little more the features of each activity and who is the responsible for each one.&lt;/li&gt;
-&lt;li&gt;Validate with your clients what it is wrong with the products and services, what they thing is necessary to do, how you can improve quality, lead time, what would be of most value, etc.&lt;/li&gt;
+&lt;li&gt;Validate with your clients what it is wrong with the products and services, what they think is necessary to do, how you can improve quality, lead time, what would be of most value, etc.&lt;/li&gt;
 &lt;li&gt;Map each issue gathered with the activity or activities that possibly cause the problem or with the valuables to be improved.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;With this assessment it is possible to have a sense of what is the priority and what part of the whole process require improvement and get a best understanding of the whole business and how the conflict is impacting it.&lt;/p&gt;
+&lt;p&gt;With this assessment, it is possible to have a sense of what is the priority and what part of the whole process require improvement and get the best understanding of the whole business and how the conflict is impacting it.&lt;/p&gt;
 
 &lt;h3 id=&#34;3-slicing-the-monolith&#34;&gt;3. Slicing the Monolith&lt;/h3&gt;
 
-&lt;p&gt;The formulation of the strategy also require to review the enterprise and software architecture looking the level of maintainability of their components, in special the software components. The vision is to reach a fluid and smooth release process where it is possible to do it frequently, by little changes to minimize the risk always associated with changes. However this vision can be titanic if we have a &amp;ldquo;monolithic software&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;The formulation of the strategy also requires reviewing the enterprise and software architecture looking the level of maintainability of their components, in special the software components. The vision is to reach a fluid and smooth release process where it is possible to do it frequently, by little changes to minimize the risk always associated with changes. However, this vision can be titanic if we have a &amp;ldquo;monolithic software&amp;rdquo;.&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;A software system is called &amp;ldquo;monolithic&amp;rdquo; if it has a monolithic architecture, in which functionally distinguishable aspects (for example, data input and output, data processing, error handling, and the user interface), are not architecturally separate components but are all interwoven.&lt;/p&gt;
@@ -79,7 +79,7 @@ But the real motivation is, why we are considering DevOps? It is because we simp
 
 &lt;h3 id=&#34;4-design-the-pipeline&#34;&gt;4. Design the pipeline&lt;/h3&gt;
 
-&lt;p&gt;A pipeline is like a production line in a brick-and-mortar factory. The principles that lead the pipeline are: end to end visibility, feedback (collaboration) and automation.
+&lt;p&gt;A pipeline is like a production line in a brick-and-mortar factory. The principles that lead the pipeline are based on the end-to-end visibility, feedback (collaboration) and automation.
 There are a least two macro-processes to implement into a pipeline: Continuous Integration and Continuous Delivery.&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -91,13 +91,13 @@ There are a least two macro-processes to implement into a pipeline: Continuous I
 
 &lt;h3 id=&#34;5-breathe-one-at-the-time-few-is-much&#34;&gt;5. Breathe, one at the time, few is much&lt;/h3&gt;
 
-&lt;p&gt;Take it easy! Although there are a lot of tools to use, it is not wise to use them all at same time. Take always in consideration that the team require time to be comfortable with each one. The culture is first.&lt;/p&gt;
+&lt;p&gt;Take it easy! Although there are a lot of tools to use, it is not wise to use them all at the same time. Take always into consideration that the team requires time to be comfortable with each one. The culture is first.&lt;/p&gt;
 
 &lt;h3 id=&#34;6-always-measure-always-learn&#34;&gt;6. Always measure, always learn!&lt;/h3&gt;
 
 &lt;p&gt;Always keep the communication and discussion with the team on each stage, taking feedback, learning from mistakes, and fixing and improving as time goes. As Agile approach is recommended frequent retrospectives to gather the feedback.&lt;/p&gt;
 
-&lt;p&gt;The DevOps implementation bring many benefits in the development and delivery of products and services. This implementation can be hard and tends to fail if lacks of a good plan. Implementation based only on tools are destined to fail, therefore it is required to consider the adaptation and acceptance of the Team.&lt;/p&gt;
+&lt;p&gt;The DevOps implementation brings many benefits in the development and delivery of products and services. This implementation can be hard and tends to fail if lacks of a good plan. Implementation based only on tools are destined to fail, therefore it is required to consider the adaptation and acceptance of the Team.&lt;/p&gt;
 </description>
     </item>
     
