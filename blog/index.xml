@@ -28,13 +28,13 @@
 &lt;li&gt;Install and configure the development workspace or the utilities for evaluation.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;strong&gt;Virtualization or Cloud&lt;/strong&gt; environments come to help us. Between virtualization tools, we have a low cost (free edition) solutions as &lt;strong&gt;Virtualbox&lt;/strong&gt; or &lt;strong&gt;VMware&lt;/strong&gt;. But setting Virtualbox every time it is required an environment is also time consuming. To easy the task exists &lt;strong&gt;Vagrant&lt;/strong&gt;. According to the Vagrant site on &lt;a href=&#34;https://www.vagrantup.com/about.html&#34;&gt;https://www.vagrantup.com/about.html&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Virtualization or Cloud&lt;/strong&gt; environments come to help us. Between virtualization tools, we have a low cost (free edition) solutions as &lt;strong&gt;Virtualbox&lt;/strong&gt; or &lt;strong&gt;VMware&lt;/strong&gt;. But setting Virtualbox every time it is required an environment is also time consuming. To ease the task exists &lt;strong&gt;Vagrant&lt;/strong&gt;. According to the Vagrant site on &lt;a href=&#34;https://www.vagrantup.com/about.html&#34;&gt;https://www.vagrantup.com/about.html&lt;/a&gt;.&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Vagrant&lt;/strong&gt; is a tool for building complete development environments. With an easy-to-use workflow and focus on automation, Vagrant lowers development environment setup time, increases development/production parity, and makes the &amp;ldquo;works on my machine&amp;rdquo; excuse a relic of the past.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Vagrant is the first creation of &lt;a href=&#34;https://www.hashicorp.com/&#34;&gt;HarshiCorp&lt;/a&gt;, and not is the last one we are going to show here in this blog. Besides, it is an open source tool with paid advanced features.&lt;/p&gt;
+&lt;p&gt;Vagrant is the first creation of &lt;a href=&#34;https://www.hashicorp.com/&#34;&gt;HarshiCorp&lt;/a&gt;. It is an open source tool.&lt;/p&gt;
 
 &lt;h2 id=&#34;defining-the-environment&#34;&gt;Defining the environment&lt;/h2&gt;
 
@@ -367,7 +367,7 @@ GuestAdditions 5.1.8 running --- OK.
 
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The following to do is demonstrate some vagrant features that easy the development process:&lt;/p&gt;
+&lt;p&gt;The following to do is demonstrate some vagrant features that ease the development process:&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;List the files in the parent directory.&lt;/li&gt;
