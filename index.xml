@@ -6,8 +6,652 @@
     <description>Recent content on Jesús A. Suárez</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 Oct 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 17 Nov 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://jsuarezm.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Easy Development Environments using Vagrant</title>
+      <link>https://jsuarezm.github.io/blog/Easy_Environments_Vagrant/</link>
+      <pubDate>Thu, 17 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://jsuarezm.github.io/blog/Easy_Environments_Vagrant/</guid>
+      <description>
+
+&lt;h1 id=&#34;easy-development-environments-using-vagrant&#34;&gt;Easy Development Environments using Vagrant&lt;/h1&gt;
+
+&lt;p&gt;Easy deployment of application or utilities requires environments for developing or testing them. There are many steps to build that environment as:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Allocate space for the equipment.&lt;/li&gt;
+&lt;li&gt;Allocate servers and network devices.&lt;/li&gt;
+&lt;li&gt;Install and configure each equipment.&lt;/li&gt;
+&lt;li&gt;Install and configure the development workspace or the utilities for evaluation.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Virtualization or Cloud&lt;/strong&gt; environments come to help us. Between virtualization tools, we have a low cost (free edition) solutions as &lt;strong&gt;Virtualbox&lt;/strong&gt; or &lt;strong&gt;VMware&lt;/strong&gt;. But setting Virtualbox every time it is required an environment is also time consuming. To easy the task exists &lt;strong&gt;Vagrant&lt;/strong&gt;. According to the Vagrant site on &lt;a href=&#34;https://www.vagrantup.com/about.html&#34;&gt;https://www.vagrantup.com/about.html&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Vagrant&lt;/strong&gt; is a tool for building complete development environments. With an easy-to-use workflow and focus on automation, Vagrant lowers development environment setup time, increases development/production parity, and makes the &amp;ldquo;works on my machine&amp;rdquo; excuse a relic of the past.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Vagrant is the first creation of &lt;a href=&#34;https://www.hashicorp.com/&#34;&gt;HarshiCorp&lt;/a&gt;, and not is the last one we are going to show here in this blog. Besides, it is an open source tool with paid advanced features.&lt;/p&gt;
+
+&lt;h2 id=&#34;defining-the-environment&#34;&gt;Defining the environment&lt;/h2&gt;
+
+&lt;p&gt;To demonstrate the basics features of Vagrant we are going to build an environment with two servers, Ubuntu and Centos, respectively, according to the following specifications:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Server&lt;/th&gt;
+&lt;th&gt;Ip Address&lt;/th&gt;
+&lt;th&gt;OS&lt;/th&gt;
+&lt;th&gt;Internet&lt;/th&gt;
+&lt;th&gt;Apps&lt;/th&gt;
+&lt;th&gt;Ports&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Minion1&lt;/td&gt;
+&lt;td&gt;192.168.111.10&lt;/td&gt;
+&lt;td&gt;Centos 7&lt;/td&gt;
+&lt;td&gt;Yes&lt;/td&gt;
+&lt;td&gt;Nginx&lt;/td&gt;
+&lt;td&gt;3000&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Minion2&lt;/td&gt;
+&lt;td&gt;192.168.111.20&lt;/td&gt;
+&lt;td&gt;Ubuntu 16.04&lt;/td&gt;
+&lt;td&gt;Yes&lt;/td&gt;
+&lt;td&gt;elinks&lt;/td&gt;
+&lt;td&gt;-&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&#34;installing-virtualbox&#34;&gt;Installing Virtualbox&lt;/h2&gt;
+
+&lt;p&gt;Download and install the last version of Virtualbox from &lt;a href=&#34;https://www.virtualbox.org/wiki/Linux_Downloads&#34;&gt;https://www.virtualbox.org/wiki/Linux_Downloads&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;installing-vagrant&#34;&gt;Installing Vagrant&lt;/h2&gt;
+
+&lt;p&gt;Download and install the last version of the vagrant binaries from &lt;a href=&#34;https://www.vagrantup.com/downloads.html&#34;&gt;https://www.vagrantup.com/downloads.html&lt;/a&gt;. For additional instruction go to the following site: &lt;a href=&#34;https://www.vagrantup.com/docs/installation/&#34;&gt;https://www.vagrantup.com/docs/installation/&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;getting-the-boxes&#34;&gt;Getting the boxes&lt;/h2&gt;
+
+&lt;p&gt;Our environment requires to kind of boxes: Centos 7 and Ubuntu 16.04. We have several options to get this boxes. Look for each box into the following sites:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The HarshiCorp site has a discovery page for the boxes made by them and others contributors. The site is &lt;a href=&#34;https://atlas.hashicorp.com/boxes/search&#34;&gt;https://atlas.hashicorp.com/boxes/search&lt;/a&gt;search).&lt;/li&gt;
+&lt;li&gt;The site &lt;a href=&#34;http://www.vagrantbox.es/&#34;&gt;http://www.vagrantbox.es/&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Googling for vagrant boxes or searching on GitHub.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There are boxes compatibles for differents &lt;strong&gt;providers&lt;/strong&gt; as VirtualBox, vmware_desktop, aws, digitalocean, docker, google, HyperV, Rackspace, parallels and veertu. It is also possible to use others no official providers as OpenStack. Some providers, in special the nonofficials, require plugins.&lt;/p&gt;
+
+&lt;p&gt;Some boxes come with &lt;strong&gt;provisioners&lt;/strong&gt; agents as &lt;strong&gt;puppet&lt;/strong&gt;, or with utilities to extend the functionalities of the provider as the Virtualbox Guest Additions.&lt;/p&gt;
+
+&lt;p&gt;As we are going to use VirtualBox, I strongly recommend using a plugin to manage the version of the VirtualBox Guest Additions into the box we are rising. To get the list of the current plugins, run the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ vagrant plugin list
+vagrant-share (1.1.5, system)
+vagrant-timezone (1.0.0)
+vagrant-vbguest (0.10.0)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Check for the plugin called vagrant-vbguest, and install if you don&amp;rsquo;t have it.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ vagrant plugin install vagrant-vbguest
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Or update all the plugins with:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ vagrant plugin update
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To add a box into the environment, it is necessary to use the following command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ vagrant box add &amp;lt;title&amp;gt; &amp;lt;url&amp;gt;
+or
+$ vagrant box add &amp;lt;title or url&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For Minion 1, we are going to get the box directly from Harshicorp site:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ vagrant box add centos/7
+==&amp;gt; box: Loading metadata for box &#39;centos/7&#39;
+    box: URL: https://atlas.hashicorp.com/centos/7
+This box can work with multiple providers! The providers that it
+can work with are listed below. Please review the list and choose
+the provider you will be working with.
+
+1) libvirt
+2) virtualbox
+3) vmware_desktop
+4) vmware_fusion
+
+Enter your choice: 2
+==&amp;gt; box: Adding box &#39;centos/7&#39; (v1610.01) for provider: virtualbox
+    box: Downloading: https://atlas.hashicorp.com/centos/boxes/7/versions/1610.01/providers/virtualbox.box
+==&amp;gt; box: Successfully added box &#39;centos/7&#39; (v1610.01) for &#39;virtualbox&#39;!
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For Minion 2 we are going to get the box from &lt;a href=&#34;http://www.vagrantbox.es/&#34;&gt;http://www.vagrantbox.es/&lt;/a&gt;. You would download the box directly from the box&amp;rsquo;s site and then add the box specifying the path of the image, or run the following command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ vagrant box add ubuntusrv1604 https://cloud-images.ubuntu.com/xenial/current/xenial-server-cloudimg-i386-vagrant.box
+==&amp;gt; box: Box file was not detected as metadata. Adding it directly...
+==&amp;gt; box: Adding box &#39;ubuntusrv1604&#39; (v0) for provider: 
+    box: Downloading: https://cloud-images.ubuntu.com/xenial/current/xenial-server-cloudimg-i386-vagrant.box
+==&amp;gt; box: Successfully added box &#39;ubuntusrv1604&#39; (v0) for &#39;virtualbox&#39;!
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To verify the list of boxes, run the following command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ vagrant box list
+appliance                 (virtualbox, 0)
+buildsrv                  (virtualbox, 0)
+centos/7                  (virtualbox, 1610.01)
+deploysrv                 (virtualbox, 0)
+devserver                 (virtualbox, 0)
+gbarbieru/xenial          (virtualbox, 0.0.6)
+graylogsrv                (virtualbox, 0)
+hansode/centos-6.6-x86_64 (virtualbox, 0.2.0)
+ldapclient                (virtualbox, 0)
+ubuntusrv1604             (virtualbox, 0)
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can check that we have two boxes with the titles &lt;em&gt;centos/7 and ubuntusrv1604&lt;/em&gt; respectively.&lt;/p&gt;
+
+&lt;p&gt;To remove a box use the following command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$vagrant box remove &amp;lt;title&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;setting-the-environment&#34;&gt;Setting the Environment&lt;/h2&gt;
+
+&lt;p&gt;We already have downloaded both boxes, so the next to do is initialize the environment and then configure. We are going to create a folder called &lt;em&gt;vagrant_test&lt;/em&gt;. Run the following commands:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$mkdir vagrant_test
+$cd vagrant_test
+$vagrant init
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can verify, running the command &lt;em&gt;ls&lt;/em&gt;, that we have a file called &lt;strong&gt;Vagrantfile&lt;/strong&gt; with the default setting:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The &amp;quot;2&amp;quot; in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don&#39;t change it unless you know what
+# you&#39;re doing.
+Vagrant.configure(&amp;quot;2&amp;quot;) do |config|
+  config.vm.box = &amp;quot;base&amp;quot;
+end
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The minimal change required to configure the environment with vagrant is to indicate which box to use, also the network setting. Into the Vagranfile:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The &amp;quot;2&amp;quot; in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don&#39;t change it unless you know what
+# you&#39;re doing.
+Vagrant.configure(&amp;quot;2&amp;quot;) do |config|
+#  config.vm.box = &amp;quot;base&amp;quot;
+
+# Minion 1 configuration
+  config.vm.define &amp;quot;minion1&amp;quot; do |srv|
+        srv.vm.box = &amp;quot;centos/7&amp;quot;
+        srv.vm.network &amp;quot;private_network&amp;quot;, ip: &amp;quot;192.168.111.10&amp;quot;
+  end
+
+# Minion 2 configuration
+  config.vm.define &amp;quot;minion2&amp;quot; do |srv|
+        srv.vm.box = &amp;quot;ubuntusrv1604&amp;quot;
+        srv.vm.network &amp;quot;private_network&amp;quot;, ip: &amp;quot;192.168.111.20&amp;quot;
+  end
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Start both servers for the first time using the following command (and be patient):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ vagrant up
+Bringing machine &#39;minion1&#39; up with &#39;virtualbox&#39; provider...
+Bringing machine &#39;minion2&#39; up with &#39;virtualbox&#39; provider...
+==&amp;gt; minion1: Importing base box &#39;centos/7&#39;...
+==&amp;gt; minion1: Matching MAC address for NAT networking...
+==&amp;gt; minion1: Checking if box &#39;centos/7&#39; is up to date...
+==&amp;gt; minion1: Setting the name of the VM: vagrant_test_minion1_1479408545036_71445
+==&amp;gt; minion1: Clearing any previously set network interfaces...
+==&amp;gt; minion1: Preparing network interfaces based on configuration...
+    minion1: Adapter 1: nat
+    minion1: Adapter 2: hostonly
+==&amp;gt; minion1: Forwarding ports...
+    minion1: 22 (guest) =&amp;gt; 2222 (host) (adapter 1)
+==&amp;gt; minion1: Booting VM...
+==&amp;gt; minion1: Waiting for machine to boot. This may take a few minutes...
+    minion1: SSH address: 127.0.0.1:2222
+    minion1: SSH username: vagrant
+    minion1: SSH auth method: private key
+....
+
+==&amp;gt; minion1: Checking for guest additions in VM...
+==&amp;gt; minion1: Configuring and enabling network interfaces...
+==&amp;gt; minion1: Rsyncing folder: /home/jsuarez/Labs/vagrant_test/ =&amp;gt; /vagrant
+==&amp;gt; minion2: Importing base box &#39;ubuntusrv1604&#39;...
+==&amp;gt; minion2: Matching MAC address for NAT networking...
+==&amp;gt; minion2: Setting the name of the VM: vagrant_test_minion2_1479408886334_4684
+==&amp;gt; minion2: Fixed port collision for 22 =&amp;gt; 2222. Now on port 2200.
+==&amp;gt; minion2: Clearing any previously set network interfaces...
+==&amp;gt; minion2: Preparing network interfaces based on configuration...
+    minion2: Adapter 1: nat
+    minion2: Adapter 2: hostonly
+==&amp;gt; minion2: Forwarding ports...
+    minion2: 22 (guest) =&amp;gt; 2200 (host) (adapter 1)
+==&amp;gt; minion2: Running &#39;pre-boot&#39; VM customizations...
+==&amp;gt; minion2: Booting VM...
+==&amp;gt; minion2: Waiting for machine to boot. This may take a few minutes...
+    minion2: SSH address: 127.0.0.1:2200
+    minion2: SSH username: ubuntu
+    minion2: SSH auth method: password
+....
+
+==&amp;gt; minion2: Configuring and enabling network interfaces...
+==&amp;gt; minion2: Mounting shared folders...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To verify both servers are working you should check the status with:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ vagrant status
+Current machine states:
+
+minion1                   running (virtualbox)
+minion2                   running (virtualbox)
+
+This environment represents multiple VMs. The VMs are all listed
+above with their current state. For more information about a specific
+VM, run `vagrant status NAME`.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;basic-operations&#34;&gt;Basic operations&lt;/h2&gt;
+
+&lt;p&gt;The basics operation with vagrant are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Start the servers using &lt;strong&gt;vagrant up &lt;name of the box&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Get access to the servers with &lt;strong&gt;vagrant ssh &lt;name of the box&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Reload the server with a new configuration using &lt;strong&gt;vagrant reload &lt;name of the box&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Stop the server with &lt;strong&gt;vagrant halt &lt;name of the box&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Restart the servers using &lt;strong&gt;vagrant up &lt;name of the box&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Destroy the servers with &lt;strong&gt;vagrant destroy &lt;name of the box&gt;&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Apparently, we have two working servers, so try to do &lt;em&gt;ping&lt;/em&gt; to both IP addresses and then get access to minion1 through &lt;strong&gt;vagrant ssh&lt;/strong&gt;. Then, from minion1 test the connectivity to minion2 and to the Internet and check the operating system.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ping 192.168.111.10
+PING 192.168.111.10 (192.168.111.10) 56(84) bytes of data.
+64 bytes from 192.168.111.10: icmp_seq=1 ttl=64 time=0.524 ms
+64 bytes from 192.168.111.10: icmp_seq=2 ttl=64 time=0.422 ms
+^C
+--- 192.168.111.10 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 999ms
+rtt min/avg/max/mdev = 0.422/0.473/0.524/0.051 ms
+jsuarez@CCSTECUBU0238:~/Labs/vagrant_test$ ping 192.168.111.20
+PING 192.168.111.20 (192.168.111.20) 56(84) bytes of data.
+64 bytes from 192.168.111.20: icmp_seq=1 ttl=64 time=0.471 ms
+...
+$ vagrant ssh minion1
+[vagrant@localhost ~]$ 
+[vagrant@localhost ~]$ ping 192.168.111.20
+PING 192.168.111.20 (192.168.111.20) 56(84) bytes of data.
+64 bytes from 192.168.111.20: icmp_seq=1 ttl=64 time=1.09 ms
+64 bytes from 192.168.111.20: icmp_seq=2 ttl=64 time=0.771 ms
+^C
+--- 192.168.111.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 0.771/0.930/1.090/0.162 ms
+[vagrant@localhost ~]$ ping 8.8.8.8
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=63 time=42.9 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=63 time=41.1 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=63 time=43.3 ms
+^C
+--- 8.8.8.8 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2007ms
+rtt min/avg/max/mdev = 41.143/42.474/43.306/0.965 ms
+[vagrant@localhost ~]$[vagrant@localhost ~]$ cat /etc/redhat-release 
+CentOS Linux release 7.2.1511 (Core)
+[vagrant@localhost ~]$ exit
+logout
+Connection to 127.0.0.1 closed.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With this configuration, we have private IP addresses and we also have access to the Internet. Stop and restart minion1:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ vagrant halt minion1
+==&amp;gt; minion1: Attempting graceful shutdown of VM...
+$ vagrant up minion1
+Bringing machine &#39;minion1&#39; up with &#39;virtualbox&#39; provider...
+==&amp;gt; minion1: Checking if box &#39;centos/7&#39; is up to date...
+==&amp;gt; minion1: Clearing any previously set forwarded ports...
+==&amp;gt; minion1: Clearing any previously set network interfaces...
+==&amp;gt; minion1: Preparing network interfaces based on configuration...
+    minion1: Adapter 1: nat
+    minion1: Adapter 2: hostonly
+==&amp;gt; minion1: Forwarding ports...
+    minion1: 22 (guest) =&amp;gt; 2222 (host) (adapter 1)
+==&amp;gt; minion1: Booting VM...
+==&amp;gt; minion1: Waiting for machine to boot. This may take a few minutes...
+    minion1: SSH address: 127.0.0.1:2222
+    minion1: SSH username: vagrant
+    minion1: SSH auth method: private key
+==&amp;gt; minion1: Machine booted and ready!
+GuestAdditions 5.1.8 running --- OK.
+==&amp;gt; minion1: Checking for guest additions in VM...
+==&amp;gt; minion1: Configuring and enabling network interfaces...
+==&amp;gt; minion1: Rsyncing folder: /home/jsuarez/Labs/vagrant_test/ =&amp;gt; /vagrant
+==&amp;gt; minion1: Machine already provisioned. Run `vagrant provision` or use the `--provision`
+==&amp;gt; minion1: flag to force provisioning. Provisioners marked to run always will still run.
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The following to do is demonstrate some vagrant features that easy the development process:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;List the files in the parent directory.&lt;/li&gt;
+&lt;li&gt;Create a &lt;em&gt;test.txt&lt;/em&gt; file.&lt;/li&gt;
+&lt;li&gt;Get access into minion1.&lt;/li&gt;
+&lt;li&gt;check that &lt;em&gt;test.txt&lt;/em&gt; file is shared into &lt;em&gt;/vagrant&lt;/em&gt; folder.&lt;/li&gt;
+&lt;li&gt;Clean the Centos repositories and install epel.&lt;/li&gt;
+&lt;li&gt;Install &lt;em&gt;Nginx&lt;/em&gt; and &lt;em&gt;elinks&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Start the Nginx service.&lt;/li&gt;
+&lt;li&gt;Check port 80 is up and verify Nginx is serving the page with elinks.&lt;/li&gt;
+&lt;li&gt;Exit from minion1.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code&gt;
+$ ls
+Vagrantfile
+$ echo &amp;quot;Test file sharing&amp;quot; &amp;gt;&amp;gt; test.txt
+$ ls
+test.txt Vagrantfile
+$ vagrant ssh minion1
+[vagrant@localhost ~]$ ls /vagrant
+test.txt Vagrantfile
+[vagrant@localhost ~]$ sudo yum clean all
+...
+[vagrant@localhost ~]$ sudo yum update -y
+...
+[vagrant@localhost ~]$ sudo yum install epel-release -y
+...
+[vagrant@localhost ~]$ sudo yum install nginx elinks -y
+...
+[vagrant@localhost ~]$ sudo systemctl start nginx
+...
+[vagrant@localhost ~]$ ss -tanpl | grep 80
+LISTEN     0      128          *:80                       *:*                  
+LISTEN     0      128         :::80                      :::*
+[vagrant@localhost ~]$ elinks http://localhost
+...
+--- elinks output ---
+...
+[vagrant@localhost ~]$ exit
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The output of elinks into minion1 is:&lt;/p&gt;
+
+
+
+
+    
+    
+        
+        
+        
+        
+    
+
+    
+    
+    
+
+    
+    
+
+
+
+
+    
+    
+        
+    
+
+
+    
+
+    
+        &lt;p&gt;&lt;span class=&#34;image center-image&#34;&gt;
+            &lt;img src=&#34;https://jsuarezm.github.io/img/2016/11/elinks_minion1.png&#34; alt=&#34;Minion1_test&#34; /&gt;
+        &lt;/span&gt;&lt;/p&gt;
+    
+
+
+
+&lt;p&gt;The next to do is:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Get access to minion2 with ssh.&lt;/li&gt;
+&lt;li&gt;Check that &lt;em&gt;test.txt&lt;/em&gt; exists into &lt;em&gt;/vagrant&lt;/em&gt; folder.&lt;/li&gt;
+&lt;li&gt;Test the connectivity to minion1.&lt;/li&gt;
+&lt;li&gt;Test the connectivity to Internet.&lt;/li&gt;
+&lt;li&gt;Update the repository.&lt;/li&gt;
+&lt;li&gt;Install elinks.&lt;/li&gt;
+&lt;li&gt;Test the nginx page with elinks.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code&gt;$ vagrant ssh minion2
+Welcome to Ubuntu 16.04.1 LTS (GNU/Linux 4.4.0-47-generic i686)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+0 packages can be updated.
+0 updates are security updates.
+
+
+Last login: Thu Nov 17 19:31:12 2016 from 10.0.2.2
+ubuntu@ubuntu-xenial:~$ ls /vagrant/
+Vagrantfile  test.txt
+ubuntu@ubuntu-xenial:~$ ping 192.168.111.20
+PING 192.168.111.20 (192.168.111.20) 56(84) bytes of data.
+64 bytes from 192.168.111.20: icmp_seq=1 ttl=64 time=0.039 ms
+64 bytes from 192.168.111.20: icmp_seq=2 ttl=64 time=0.049 ms
+^C
+--- 192.168.111.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 999ms
+rtt min/avg/max/mdev = 0.039/0.044/0.049/0.005 ms
+ubuntu@ubuntu-xenial:~$ ping 8.8.8.8
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=63 time=41.8 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=63 time=40.7 ms
+^C
+--- 8.8.8.8 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+rtt min/avg/max/mdev = 40.731/41.289/41.848/0.594 ms
+ubuntu@ubuntu-xenial:~$ sudo apt-get update
+...
+ubuntu@ubuntu-xenial:~$ sudo apt-get install elinks -y
+...
+ubuntu@ubuntu-xenial:~$ elinks http://192.168.111.10
+...
+--- elinks output ---
+...
+ubuntu@ubuntu-xenial:~$ exit
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The results of the connection to the minion1 page from minion2 is:&lt;/p&gt;
+
+
+
+
+    
+    
+        
+        
+        
+        
+    
+
+    
+    
+    
+
+    
+    
+
+
+
+
+    
+    
+        
+    
+
+
+    
+
+    
+        &lt;p&gt;&lt;span class=&#34;image center-image&#34;&gt;
+            &lt;img src=&#34;https://jsuarezm.github.io/img/2016/11/elinks_minion2.png&#34; alt=&#34;Minion2_test&#34; /&gt;
+        &lt;/span&gt;&lt;/p&gt;
+    
+
+
+
+&lt;p&gt;We also want to see the nginx page from the browser of the host, but at this moment we don&amp;rsquo;t have a port to get the connection. Therefore, it is necessary to modify Vagrantfile to map the port 80 in minion1 to the port 3000 in localhost, then reload minion1, start and verify nginx service and try the connection with the browser. Into Vagranfile:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The &amp;quot;2&amp;quot; in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don&#39;t change it unless you know what
+# you&#39;re doing.
+Vagrant.configure(&amp;quot;2&amp;quot;) do |config|
+#  config.vm.box = &amp;quot;base&amp;quot;
+
+# Minion 1 configuration
+  config.vm.define &amp;quot;minion1&amp;quot; do |srv|
+        srv.vm.box = &amp;quot;centos/7&amp;quot;
+        srv.vm.network &amp;quot;private_network&amp;quot;, ip: &amp;quot;192.168.111.10&amp;quot;
+        srv.vm.network &amp;quot;forwarded_port&amp;quot;, guest: 80, host: 3000
+  end
+
+# Minion 2 configuration
+  config.vm.define &amp;quot;minion2&amp;quot; do |srv|
+        srv.vm.box = &amp;quot;ubuntusrv1604&amp;quot;
+        srv.vm.network &amp;quot;private_network&amp;quot;, ip: &amp;quot;192.168.111.20&amp;quot;
+  end
+end
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ vagrant reload minion1
+==&amp;gt; minion1: Attempting graceful shutdown of VM...
+==&amp;gt; minion1: Checking if box &#39;centos/7&#39; is up to date...
+==&amp;gt; minion1: Clearing any previously set forwarded ports...
+==&amp;gt; minion1: Clearing any previously set network interfaces...
+==&amp;gt; minion1: Preparing network interfaces based on configuration...
+    minion1: Adapter 1: nat
+    minion1: Adapter 2: hostonly
+==&amp;gt; minion1: Forwarding ports...
+    minion1: 80 (guest) =&amp;gt; 3000 (host) (adapter 1)
+    minion1: 22 (guest) =&amp;gt; 2222 (host) (adapter 1)
+==&amp;gt; minion1: Booting VM..
+...
+$ vagrant ssh minion1
+Last login: Thu Nov 17 19:40:32 2016 from 10.0.2.2
+[vagrant@localhost ~]$ sudo systemctl start nginx
+[vagrant@localhost ~]$ sudo systemctl status nginx
+● nginx.service - The nginx HTTP and reverse proxy server
+   Loaded: loaded (/usr/lib/systemd/system/nginx.service; disabled; vendor preset: disabled)
+   Active: active (running) 
+...
+[vagrant@localhost ~]$ exit
+logout
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;From the browser in the host:&lt;/p&gt;
+
+
+
+
+    
+    
+        
+        
+        
+        
+    
+
+    
+    
+    
+
+    
+    
+
+
+
+
+    
+    
+        
+    
+
+
+    
+
+    
+        &lt;p&gt;&lt;span class=&#34;image center-image&#34;&gt;
+            &lt;img src=&#34;https://jsuarezm.github.io/img/2016/11/browser_localhost.png&#34; alt=&#34;browser_test&#34; /&gt;
+        &lt;/span&gt;&lt;/p&gt;
+    
+
+
+
+&lt;p&gt;As we finish the demonstration we can destroy the environment using the following command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ vagrant destroy
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
+
+&lt;p&gt;At this moment we just built and destroyed a test environment, we used efficiently the virtualization, we easily configured the network setting and the access to each box. If you want to evaluate new technology and require the virtual machine to install applications, if you need to use a development environment for the project, vagrant is the tool to save your time.
+In future posts, we are going to deploy with vagrant using provisioner as puppet and ansible.
+It is important to remember that vagrant is not intended for production environments.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>About me</title>
