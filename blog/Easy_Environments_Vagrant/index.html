@@ -1,0 +1,1418 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        
+            
+                <title>Easy Development Environments using Vagrant</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.17" />
+        
+
+
+        
+            <meta name="author" content="Jesús Suárez">
+        
+        
+            <meta name="description" content="How to build easy development environments using Vagrant">
+        
+
+        
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:title" content="Easy Development Environments using Vagrant"/>
+<meta name="twitter:description" content="How to build easy development environments using Vagrant"/>
+<meta name="twitter:site" content="@jsuarez_m"/>
+
+
+        <meta property="og:title" content="Easy Development Environments using Vagrant" />
+<meta property="og:description" content="How to build easy development environments using Vagrant" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jsuarezm.github.io/blog/Easy_Environments_Vagrant/" />
+
+
+<meta property="og:updated_time" content="2016-11-17T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+        
+<meta itemprop="name" content="Easy Development Environments using Vagrant">
+<meta itemprop="description" content="How to build easy development environments using Vagrant">
+
+
+<meta itemprop="dateModified" content="2016-11-17T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2541">
+
+
+
+<meta itemprop="keywords" content="DevOps,Howtos,Roadmap,Vagrant,Virtualbox," />
+
+        
+
+        
+
+        
+        
+            
+        
+
+        
+        
+
+        
+            
+                
+                    <link rel="stylesheet" href="/css/main.min.css" />
+                
+            
+        
+
+        
+        
+        
+            
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-86470243-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+        
+    </head>
+    <body>
+
+        
+        <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+        <h2><a href="/">Jesús A. Suárez</i></a></h2>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="/blog">
+                        
+                            <i class="fa fa-newspaper-o">&nbsp;</i>Blog
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/categories">
+                        
+                            <i class="fa fa-tags">&nbsp;</i>Categories
+                    </a>
+                </li>
+            
+                <li>
+                    <a href="/about">
+                        
+                            <i class="fa fa-user-secret">&nbsp;</i>About me
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="q" value="site:https://jsuarezm.github.io">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="q" value="site:https://jsuarezm.github.io">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="/blog">
+                            <h3>
+                                
+                                    <i class="fa fa-newspaper-o">&nbsp;</i>
+                                
+                                Blog
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            <h3>
+                                
+                                    <i class="fa fa-tags">&nbsp;</i>
+                                
+                                Categories
+                            </h3>
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/about">
+                            <h3>
+                                
+                                    <i class="fa fa-user-secret">&nbsp;</i>
+                                
+                                About me
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+                    
+                
+
+                
+                    <li>
+                        <a href="https://jsuarezm.github.io/blog/Easy_Environments_Vagrant/"><p>Easy Development Environments using Vagrant</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="https://jsuarezm.github.io/blog/Tear%20down%20the%20wall%20-%20the%20DevOps%20roadmap/"><p>Tear down the Wall!</p></a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+<li><a href="//twitter.com/share?url=https%3a%2f%2fjsuarezm.github.io%2fblog%2fEasy_Environments_Vagrant%2f&text=Easy%20Development%20Environments%20using%20Vagrant&via=jsuarez_m" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+
+<li><a href="//plus.google.com/share?url=https%3a%2f%2fjsuarezm.github.io%2fblog%2fEasy_Environments_Vagrant%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+
+<li><a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fjsuarezm.github.io%2fblog%2fEasy_Environments_Vagrant%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+
+<li><a href="//reddit.com/submit?url=https%3a%2f%2fjsuarezm.github.io%2fblog%2fEasy_Environments_Vagrant%2f&title=Easy%20Development%20Environments%20using%20Vagrant" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+
+<li><a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fjsuarezm.github.io%2fblog%2fEasy_Environments_Vagrant%2f&title=Easy%20Development%20Environments%20using%20Vagrant" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+
+<li><a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fjsuarezm.github.io%2fblog%2fEasy_Environments_Vagrant%2f&title=Easy%20Development%20Environments%20using%20Vagrant" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+
+<li><a href="mailto:?subject=Check out this post by Jes%c3%bas%20Su%c3%a1rez&body=https%3a%2f%2fjsuarezm.github.io%2fblog%2fEasy_Environments_Vagrant%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+    <header>
+    <div class="title">
+        
+            <h1><a href="https://jsuarezm.github.io/blog/Easy_Environments_Vagrant/">Easy Development Environments using Vagrant</a></h1>
+            
+        
+        
+            <p>How to build easy development environments using Vagrant</p>
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime='2016-11-17'>
+            November 17, 2016</time>
+        <span class="author">Jesús Suárez</span>
+        
+            <p>12 minute read</p>
+        
+        
+    </div>
+</header>
+
+
+    <section id="social-share">
+        <ul class="icons">
+            
+
+
+<li><a href="//twitter.com/share?url=https%3a%2f%2fjsuarezm.github.io%2fblog%2fEasy_Environments_Vagrant%2f&text=Easy%20Development%20Environments%20using%20Vagrant&via=jsuarez_m" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+
+<li><a href="//plus.google.com/share?url=https%3a%2f%2fjsuarezm.github.io%2fblog%2fEasy_Environments_Vagrant%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+
+<li><a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fjsuarezm.github.io%2fblog%2fEasy_Environments_Vagrant%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+
+<li><a href="//reddit.com/submit?url=https%3a%2f%2fjsuarezm.github.io%2fblog%2fEasy_Environments_Vagrant%2f&title=Easy%20Development%20Environments%20using%20Vagrant" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+
+<li><a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fjsuarezm.github.io%2fblog%2fEasy_Environments_Vagrant%2f&title=Easy%20Development%20Environments%20using%20Vagrant" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+
+<li><a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fjsuarezm.github.io%2fblog%2fEasy_Environments_Vagrant%2f&title=Easy%20Development%20Environments%20using%20Vagrant" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+
+<li><a href="mailto:?subject=Check out this post by Jes%c3%bas%20Su%c3%a1rez&body=https%3a%2f%2fjsuarezm.github.io%2fblog%2fEasy_Environments_Vagrant%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+
+        </ul>
+    </section>
+    
+    
+
+    
+        
+        
+
+
+
+
+    
+    
+        
+    
+
+
+        
+
+        <a href="https://jsuarezm.github.io/blog/Easy_Environments_Vagrant/" class="image featured">
+            <img src="/img/2016/11/horizon2.jpg" alt="" />
+        </a>
+    
+
+
+    <div id="content">
+        
+
+<h1 id="easy-development-environments-using-vagrant">Easy Development Environments using Vagrant</h1>
+
+<p>Easy deployment of application or utilities requires environments for developing or testing them. There are many steps to build that environment as:</p>
+
+<ul>
+<li>Allocate space for the equipment.</li>
+<li>Allocate servers and network devices.</li>
+<li>Install and configure each equipment.</li>
+<li>Install and configure the development workspace or the utilities for evaluation.</li>
+</ul>
+
+<p><strong>Virtualization or Cloud</strong> environments come to help us. Between virtualization tools, we have a low cost (free edition) solutions as <strong>Virtualbox</strong> or <strong>VMware</strong>. But setting Virtualbox every time it is required an environment is also time consuming. To easy the task exists <strong>Vagrant</strong>. According to the Vagrant site on <a href="https://www.vagrantup.com/about.html">https://www.vagrantup.com/about.html</a>.</p>
+
+<blockquote>
+<p><strong>Vagrant</strong> is a tool for building complete development environments. With an easy-to-use workflow and focus on automation, Vagrant lowers development environment setup time, increases development/production parity, and makes the &ldquo;works on my machine&rdquo; excuse a relic of the past.</p>
+</blockquote>
+
+<p>Vagrant is the first creation of <a href="https://www.hashicorp.com/">HarshiCorp</a>, and not is the last one we are going to show here in this blog. Besides, it is an open source tool with paid advanced features.</p>
+
+<h2 id="defining-the-environment">Defining the environment</h2>
+
+<p>To demonstrate the basics features of Vagrant we are going to build an environment with two servers, Ubuntu and Centos, respectively, according to the following specifications:</p>
+
+<table>
+<thead>
+<tr>
+<th>Server</th>
+<th>Ip Address</th>
+<th>OS</th>
+<th>Internet</th>
+<th>Apps</th>
+<th>Ports</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Minion1</td>
+<td>192.168.111.10</td>
+<td>Centos 7</td>
+<td>Yes</td>
+<td>Nginx</td>
+<td>3000</td>
+</tr>
+
+<tr>
+<td>Minion2</td>
+<td>192.168.111.20</td>
+<td>Ubuntu 16.04</td>
+<td>Yes</td>
+<td>elinks</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="installing-virtualbox">Installing Virtualbox</h2>
+
+<p>Download and install the last version of Virtualbox from <a href="https://www.virtualbox.org/wiki/Linux_Downloads">https://www.virtualbox.org/wiki/Linux_Downloads</a>.</p>
+
+<h2 id="installing-vagrant">Installing Vagrant</h2>
+
+<p>Download and install the last version of the vagrant binaries from <a href="https://www.vagrantup.com/downloads.html">https://www.vagrantup.com/downloads.html</a>. For additional instruction go to the following site: <a href="https://www.vagrantup.com/docs/installation/">https://www.vagrantup.com/docs/installation/</a>.</p>
+
+<h2 id="getting-the-boxes">Getting the boxes</h2>
+
+<p>Our environment requires to kind of boxes: Centos 7 and Ubuntu 16.04. We have several options to get this boxes. Look for each box into the following sites:</p>
+
+<ul>
+<li>The HarshiCorp site has a discovery page for the boxes made by them and others contributors. The site is <a href="https://atlas.hashicorp.com/boxes/search">https://atlas.hashicorp.com/boxes/search</a>search).</li>
+<li>The site <a href="http://www.vagrantbox.es/">http://www.vagrantbox.es/</a>.</li>
+<li>Googling for vagrant boxes or searching on GitHub.</li>
+</ul>
+
+<p>There are boxes compatibles for differents <strong>providers</strong> as VirtualBox, vmware_desktop, aws, digitalocean, docker, google, HyperV, Rackspace, parallels and veertu. It is also possible to use others no official providers as OpenStack. Some providers, in special the nonofficials, require plugins.</p>
+
+<p>Some boxes come with <strong>provisioners</strong> agents as <strong>puppet</strong>, or with utilities to extend the functionalities of the provider as the Virtualbox Guest Additions.</p>
+
+<p>As we are going to use VirtualBox, I strongly recommend using a plugin to manage the version of the VirtualBox Guest Additions into the box we are rising. To get the list of the current plugins, run the following:</p>
+
+<pre><code>$ vagrant plugin list
+vagrant-share (1.1.5, system)
+vagrant-timezone (1.0.0)
+vagrant-vbguest (0.10.0)
+</code></pre>
+
+<p>Check for the plugin called vagrant-vbguest, and install if you don&rsquo;t have it.</p>
+
+<pre><code>$ vagrant plugin install vagrant-vbguest
+</code></pre>
+
+<p>Or update all the plugins with:</p>
+
+<pre><code>$ vagrant plugin update
+</code></pre>
+
+<p>To add a box into the environment, it is necessary to use the following command:</p>
+
+<pre><code>$ vagrant box add &lt;title&gt; &lt;url&gt;
+or
+$ vagrant box add &lt;title or url&gt;
+</code></pre>
+
+<p>For Minion 1, we are going to get the box directly from Harshicorp site:</p>
+
+<pre><code>$ vagrant box add centos/7
+==&gt; box: Loading metadata for box 'centos/7'
+    box: URL: https://atlas.hashicorp.com/centos/7
+This box can work with multiple providers! The providers that it
+can work with are listed below. Please review the list and choose
+the provider you will be working with.
+
+1) libvirt
+2) virtualbox
+3) vmware_desktop
+4) vmware_fusion
+
+Enter your choice: 2
+==&gt; box: Adding box 'centos/7' (v1610.01) for provider: virtualbox
+    box: Downloading: https://atlas.hashicorp.com/centos/boxes/7/versions/1610.01/providers/virtualbox.box
+==&gt; box: Successfully added box 'centos/7' (v1610.01) for 'virtualbox'!
+
+</code></pre>
+
+<p>For Minion 2 we are going to get the box from <a href="http://www.vagrantbox.es/">http://www.vagrantbox.es/</a>. You would download the box directly from the box&rsquo;s site and then add the box specifying the path of the image, or run the following command:</p>
+
+<pre><code>$ vagrant box add ubuntusrv1604 https://cloud-images.ubuntu.com/xenial/current/xenial-server-cloudimg-i386-vagrant.box
+==&gt; box: Box file was not detected as metadata. Adding it directly...
+==&gt; box: Adding box 'ubuntusrv1604' (v0) for provider: 
+    box: Downloading: https://cloud-images.ubuntu.com/xenial/current/xenial-server-cloudimg-i386-vagrant.box
+==&gt; box: Successfully added box 'ubuntusrv1604' (v0) for 'virtualbox'!
+
+</code></pre>
+
+<p>To verify the list of boxes, run the following command:</p>
+
+<pre><code>$ vagrant box list
+appliance                 (virtualbox, 0)
+buildsrv                  (virtualbox, 0)
+centos/7                  (virtualbox, 1610.01)
+deploysrv                 (virtualbox, 0)
+devserver                 (virtualbox, 0)
+gbarbieru/xenial          (virtualbox, 0.0.6)
+graylogsrv                (virtualbox, 0)
+hansode/centos-6.6-x86_64 (virtualbox, 0.2.0)
+ldapclient                (virtualbox, 0)
+ubuntusrv1604             (virtualbox, 0)
+
+</code></pre>
+
+<p>We can check that we have two boxes with the titles <em>centos/7 and ubuntusrv1604</em> respectively.</p>
+
+<p>To remove a box use the following command:</p>
+
+<pre><code>$vagrant box remove &lt;title&gt;
+</code></pre>
+
+<h2 id="setting-the-environment">Setting the Environment</h2>
+
+<p>We already have downloaded both boxes, so the next to do is initialize the environment and then configure. We are going to create a folder called <em>vagrant_test</em>. Run the following commands:</p>
+
+<pre><code>$mkdir vagrant_test
+$cd vagrant_test
+$vagrant init
+</code></pre>
+
+<p>You can verify, running the command <em>ls</em>, that we have a file called <strong>Vagrantfile</strong> with the default setting:</p>
+
+<pre><code># -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The &quot;2&quot; in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure(&quot;2&quot;) do |config|
+  config.vm.box = &quot;base&quot;
+end
+
+</code></pre>
+
+<p>The minimal change required to configure the environment with vagrant is to indicate which box to use, also the network setting. Into the Vagranfile:</p>
+
+<pre><code>
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The &quot;2&quot; in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure(&quot;2&quot;) do |config|
+#  config.vm.box = &quot;base&quot;
+
+# Minion 1 configuration
+  config.vm.define &quot;minion1&quot; do |srv|
+        srv.vm.box = &quot;centos/7&quot;
+        srv.vm.network &quot;private_network&quot;, ip: &quot;192.168.111.10&quot;
+  end
+
+# Minion 2 configuration
+  config.vm.define &quot;minion2&quot; do |srv|
+        srv.vm.box = &quot;ubuntusrv1604&quot;
+        srv.vm.network &quot;private_network&quot;, ip: &quot;192.168.111.20&quot;
+  end
+end
+</code></pre>
+
+<p>Start both servers for the first time using the following command (and be patient):</p>
+
+<pre><code>$ vagrant up
+Bringing machine 'minion1' up with 'virtualbox' provider...
+Bringing machine 'minion2' up with 'virtualbox' provider...
+==&gt; minion1: Importing base box 'centos/7'...
+==&gt; minion1: Matching MAC address for NAT networking...
+==&gt; minion1: Checking if box 'centos/7' is up to date...
+==&gt; minion1: Setting the name of the VM: vagrant_test_minion1_1479408545036_71445
+==&gt; minion1: Clearing any previously set network interfaces...
+==&gt; minion1: Preparing network interfaces based on configuration...
+    minion1: Adapter 1: nat
+    minion1: Adapter 2: hostonly
+==&gt; minion1: Forwarding ports...
+    minion1: 22 (guest) =&gt; 2222 (host) (adapter 1)
+==&gt; minion1: Booting VM...
+==&gt; minion1: Waiting for machine to boot. This may take a few minutes...
+    minion1: SSH address: 127.0.0.1:2222
+    minion1: SSH username: vagrant
+    minion1: SSH auth method: private key
+....
+
+==&gt; minion1: Checking for guest additions in VM...
+==&gt; minion1: Configuring and enabling network interfaces...
+==&gt; minion1: Rsyncing folder: /home/jsuarez/Labs/vagrant_test/ =&gt; /vagrant
+==&gt; minion2: Importing base box 'ubuntusrv1604'...
+==&gt; minion2: Matching MAC address for NAT networking...
+==&gt; minion2: Setting the name of the VM: vagrant_test_minion2_1479408886334_4684
+==&gt; minion2: Fixed port collision for 22 =&gt; 2222. Now on port 2200.
+==&gt; minion2: Clearing any previously set network interfaces...
+==&gt; minion2: Preparing network interfaces based on configuration...
+    minion2: Adapter 1: nat
+    minion2: Adapter 2: hostonly
+==&gt; minion2: Forwarding ports...
+    minion2: 22 (guest) =&gt; 2200 (host) (adapter 1)
+==&gt; minion2: Running 'pre-boot' VM customizations...
+==&gt; minion2: Booting VM...
+==&gt; minion2: Waiting for machine to boot. This may take a few minutes...
+    minion2: SSH address: 127.0.0.1:2200
+    minion2: SSH username: ubuntu
+    minion2: SSH auth method: password
+....
+
+==&gt; minion2: Configuring and enabling network interfaces...
+==&gt; minion2: Mounting shared folders...
+</code></pre>
+
+<p>To verify both servers are working you should check the status with:</p>
+
+<pre><code>$ vagrant status
+Current machine states:
+
+minion1                   running (virtualbox)
+minion2                   running (virtualbox)
+
+This environment represents multiple VMs. The VMs are all listed
+above with their current state. For more information about a specific
+VM, run `vagrant status NAME`.
+</code></pre>
+
+<h2 id="basic-operations">Basic operations</h2>
+
+<p>The basics operation with vagrant are:</p>
+
+<ul>
+<li>Start the servers using <strong>vagrant up <name of the box></strong>.</li>
+<li>Get access to the servers with <strong>vagrant ssh <name of the box></strong>.</li>
+<li>Reload the server with a new configuration using <strong>vagrant reload <name of the box></strong>.</li>
+<li>Stop the server with <strong>vagrant halt <name of the box></strong>.</li>
+<li>Restart the servers using <strong>vagrant up <name of the box></strong>.</li>
+<li>Destroy the servers with <strong>vagrant destroy <name of the box></strong>.</li>
+</ul>
+
+<p>Apparently, we have two working servers, so try to do <em>ping</em> to both IP addresses and then get access to minion1 through <strong>vagrant ssh</strong>. Then, from minion1 test the connectivity to minion2 and to the Internet and check the operating system.</p>
+
+<pre><code>$ ping 192.168.111.10
+PING 192.168.111.10 (192.168.111.10) 56(84) bytes of data.
+64 bytes from 192.168.111.10: icmp_seq=1 ttl=64 time=0.524 ms
+64 bytes from 192.168.111.10: icmp_seq=2 ttl=64 time=0.422 ms
+^C
+--- 192.168.111.10 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 999ms
+rtt min/avg/max/mdev = 0.422/0.473/0.524/0.051 ms
+jsuarez@CCSTECUBU0238:~/Labs/vagrant_test$ ping 192.168.111.20
+PING 192.168.111.20 (192.168.111.20) 56(84) bytes of data.
+64 bytes from 192.168.111.20: icmp_seq=1 ttl=64 time=0.471 ms
+...
+$ vagrant ssh minion1
+[vagrant@localhost ~]$ 
+[vagrant@localhost ~]$ ping 192.168.111.20
+PING 192.168.111.20 (192.168.111.20) 56(84) bytes of data.
+64 bytes from 192.168.111.20: icmp_seq=1 ttl=64 time=1.09 ms
+64 bytes from 192.168.111.20: icmp_seq=2 ttl=64 time=0.771 ms
+^C
+--- 192.168.111.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 0.771/0.930/1.090/0.162 ms
+[vagrant@localhost ~]$ ping 8.8.8.8
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=63 time=42.9 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=63 time=41.1 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=63 time=43.3 ms
+^C
+--- 8.8.8.8 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2007ms
+rtt min/avg/max/mdev = 41.143/42.474/43.306/0.965 ms
+[vagrant@localhost ~]$[vagrant@localhost ~]$ cat /etc/redhat-release 
+CentOS Linux release 7.2.1511 (Core)
+[vagrant@localhost ~]$ exit
+logout
+Connection to 127.0.0.1 closed.
+</code></pre>
+
+<p>With this configuration, we have private IP addresses and we also have access to the Internet. Stop and restart minion1:</p>
+
+<pre><code>$ vagrant halt minion1
+==&gt; minion1: Attempting graceful shutdown of VM...
+$ vagrant up minion1
+Bringing machine 'minion1' up with 'virtualbox' provider...
+==&gt; minion1: Checking if box 'centos/7' is up to date...
+==&gt; minion1: Clearing any previously set forwarded ports...
+==&gt; minion1: Clearing any previously set network interfaces...
+==&gt; minion1: Preparing network interfaces based on configuration...
+    minion1: Adapter 1: nat
+    minion1: Adapter 2: hostonly
+==&gt; minion1: Forwarding ports...
+    minion1: 22 (guest) =&gt; 2222 (host) (adapter 1)
+==&gt; minion1: Booting VM...
+==&gt; minion1: Waiting for machine to boot. This may take a few minutes...
+    minion1: SSH address: 127.0.0.1:2222
+    minion1: SSH username: vagrant
+    minion1: SSH auth method: private key
+==&gt; minion1: Machine booted and ready!
+GuestAdditions 5.1.8 running --- OK.
+==&gt; minion1: Checking for guest additions in VM...
+==&gt; minion1: Configuring and enabling network interfaces...
+==&gt; minion1: Rsyncing folder: /home/jsuarez/Labs/vagrant_test/ =&gt; /vagrant
+==&gt; minion1: Machine already provisioned. Run `vagrant provision` or use the `--provision`
+==&gt; minion1: flag to force provisioning. Provisioners marked to run always will still run.
+
+</code></pre>
+
+<p>The following to do is demonstrate some vagrant features that easy the development process:</p>
+
+<ol>
+<li>List the files in the parent directory.</li>
+<li>Create a <em>test.txt</em> file.</li>
+<li>Get access into minion1.</li>
+<li>check that <em>test.txt</em> file is shared into <em>/vagrant</em> folder.</li>
+<li>Clean the Centos repositories and install epel.</li>
+<li>Install <em>Nginx</em> and <em>elinks</em>.</li>
+<li>Start the Nginx service.</li>
+<li>Check port 80 is up and verify Nginx is serving the page with elinks.</li>
+<li>Exit from minion1.</li>
+</ol>
+
+<pre><code>
+$ ls
+Vagrantfile
+$ echo &quot;Test file sharing&quot; &gt;&gt; test.txt
+$ ls
+test.txt Vagrantfile
+$ vagrant ssh minion1
+[vagrant@localhost ~]$ ls /vagrant
+test.txt Vagrantfile
+[vagrant@localhost ~]$ sudo yum clean all
+...
+[vagrant@localhost ~]$ sudo yum update -y
+...
+[vagrant@localhost ~]$ sudo yum install epel-release -y
+...
+[vagrant@localhost ~]$ sudo yum install nginx elinks -y
+...
+[vagrant@localhost ~]$ sudo systemctl start nginx
+...
+[vagrant@localhost ~]$ ss -tanpl | grep 80
+LISTEN     0      128          *:80                       *:*                  
+LISTEN     0      128         :::80                      :::*
+[vagrant@localhost ~]$ elinks http://localhost
+...
+--- elinks output ---
+...
+[vagrant@localhost ~]$ exit
+</code></pre>
+
+<p>The output of elinks into minion1 is:</p>
+
+
+
+
+    
+    
+        
+        
+        
+        
+    
+
+    
+    
+    
+
+    
+    
+
+
+
+
+    
+    
+        
+    
+
+
+    
+
+    
+        <p><span class="image center-image">
+            <img src="/img/2016/11/elinks_minion1.png" alt="Minion1_test" />
+        </span></p>
+    
+
+
+
+<p>The next to do is:</p>
+
+<ol>
+<li>Get access to minion2 with ssh.</li>
+<li>Check that <em>test.txt</em> exists into <em>/vagrant</em> folder.</li>
+<li>Test the connectivity to minion1.</li>
+<li>Test the connectivity to Internet.</li>
+<li>Update the repository.</li>
+<li>Install elinks.</li>
+<li>Test the nginx page with elinks.</li>
+</ol>
+
+<pre><code>$ vagrant ssh minion2
+Welcome to Ubuntu 16.04.1 LTS (GNU/Linux 4.4.0-47-generic i686)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+0 packages can be updated.
+0 updates are security updates.
+
+
+Last login: Thu Nov 17 19:31:12 2016 from 10.0.2.2
+ubuntu@ubuntu-xenial:~$ ls /vagrant/
+Vagrantfile  test.txt
+ubuntu@ubuntu-xenial:~$ ping 192.168.111.20
+PING 192.168.111.20 (192.168.111.20) 56(84) bytes of data.
+64 bytes from 192.168.111.20: icmp_seq=1 ttl=64 time=0.039 ms
+64 bytes from 192.168.111.20: icmp_seq=2 ttl=64 time=0.049 ms
+^C
+--- 192.168.111.20 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 999ms
+rtt min/avg/max/mdev = 0.039/0.044/0.049/0.005 ms
+ubuntu@ubuntu-xenial:~$ ping 8.8.8.8
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=63 time=41.8 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=63 time=40.7 ms
+^C
+--- 8.8.8.8 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+rtt min/avg/max/mdev = 40.731/41.289/41.848/0.594 ms
+ubuntu@ubuntu-xenial:~$ sudo apt-get update
+...
+ubuntu@ubuntu-xenial:~$ sudo apt-get install elinks -y
+...
+ubuntu@ubuntu-xenial:~$ elinks http://192.168.111.10
+...
+--- elinks output ---
+...
+ubuntu@ubuntu-xenial:~$ exit
+</code></pre>
+
+<p>The results of the connection to the minion1 page from minion2 is:</p>
+
+
+
+
+    
+    
+        
+        
+        
+        
+    
+
+    
+    
+    
+
+    
+    
+
+
+
+
+    
+    
+        
+    
+
+
+    
+
+    
+        <p><span class="image center-image">
+            <img src="/img/2016/11/elinks_minion2.png" alt="Minion2_test" />
+        </span></p>
+    
+
+
+
+<p>We also want to see the nginx page from the browser of the host, but at this moment we don&rsquo;t have a port to get the connection. Therefore, it is necessary to modify Vagrantfile to map the port 80 in minion1 to the port 3000 in localhost, then reload minion1, start and verify nginx service and try the connection with the browser. Into Vagranfile:</p>
+
+<pre><code>
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The &quot;2&quot; in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure(&quot;2&quot;) do |config|
+#  config.vm.box = &quot;base&quot;
+
+# Minion 1 configuration
+  config.vm.define &quot;minion1&quot; do |srv|
+        srv.vm.box = &quot;centos/7&quot;
+        srv.vm.network &quot;private_network&quot;, ip: &quot;192.168.111.10&quot;
+        srv.vm.network &quot;forwarded_port&quot;, guest: 80, host: 3000
+  end
+
+# Minion 2 configuration
+  config.vm.define &quot;minion2&quot; do |srv|
+        srv.vm.box = &quot;ubuntusrv1604&quot;
+        srv.vm.network &quot;private_network&quot;, ip: &quot;192.168.111.20&quot;
+  end
+end
+
+</code></pre>
+
+<p>Then:</p>
+
+<pre><code>$ vagrant reload minion1
+==&gt; minion1: Attempting graceful shutdown of VM...
+==&gt; minion1: Checking if box 'centos/7' is up to date...
+==&gt; minion1: Clearing any previously set forwarded ports...
+==&gt; minion1: Clearing any previously set network interfaces...
+==&gt; minion1: Preparing network interfaces based on configuration...
+    minion1: Adapter 1: nat
+    minion1: Adapter 2: hostonly
+==&gt; minion1: Forwarding ports...
+    minion1: 80 (guest) =&gt; 3000 (host) (adapter 1)
+    minion1: 22 (guest) =&gt; 2222 (host) (adapter 1)
+==&gt; minion1: Booting VM..
+...
+$ vagrant ssh minion1
+Last login: Thu Nov 17 19:40:32 2016 from 10.0.2.2
+[vagrant@localhost ~]$ sudo systemctl start nginx
+[vagrant@localhost ~]$ sudo systemctl status nginx
+● nginx.service - The nginx HTTP and reverse proxy server
+   Loaded: loaded (/usr/lib/systemd/system/nginx.service; disabled; vendor preset: disabled)
+   Active: active (running) 
+...
+[vagrant@localhost ~]$ exit
+logout
+
+</code></pre>
+
+<p>From the browser in the host:</p>
+
+
+
+
+    
+    
+        
+        
+        
+        
+    
+
+    
+    
+    
+
+    
+    
+
+
+
+
+    
+    
+        
+    
+
+
+    
+
+    
+        <p><span class="image center-image">
+            <img src="/img/2016/11/browser_localhost.png" alt="browser_test" />
+        </span></p>
+    
+
+
+
+<p>As we finish the demonstration we can destroy the environment using the following command:</p>
+
+<pre><code>$ vagrant destroy
+</code></pre>
+
+<h2 id="summary">Summary</h2>
+
+<p>At this moment we just built and destroyed a test environment, we used efficiently the virtualization, we easily configured the network setting and the access to each box. If you want to evaluate new technology and require the virtual machine to install applications, if you need to use a development environment for the project, vagrant is the tool to save your time.
+In future posts, we are going to deploy with vagrant using provisioner as puppet and ansible.
+It is important to remember that vagrant is not intended for production environments.</p>
+
+    </div>
+
+    <footer>
+        <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+                
+                    
+
+                    
+
+                    
+                        <i class="fa fa-tags">&nbsp;</i>
+                    
+
+                    
+                        Categories
+                    
+                
+            </li>
+        
+    
+
+    
+    
+        <li><a href='/categoriesdevops'>DevOps</a></li>
+    
+        <li><a href='/categoriesvagrant'>Vagrant</a></li>
+    
+        <li><a href='/categoriesvirtualbox'>Virtualbox</a></li>
+    
+        <li><a href='/categorieshowtos'>Howtos</a></li>
+    
+</ul>
+
+    </footer>
+</article>
+<ul class="actions pagination">
+    
+        <li><a href="https://jsuarezm.github.io/blog/Tear%20down%20the%20wall%20-%20the%20DevOps%20roadmap/"
+                class="button big previous">Tear down the Wall!</a></li>
+    
+
+    
+</ul>
+
+
+
+    
+        <article class="post">
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'jsuarezm-github-io';
+    var disqus_identifier = 'https:\/\/jsuarezm.github.io\/blog\/Easy_Environments_Vagrant\/';
+    var disqus_title = 'Easy Development Environments using Vagrant';
+    var disqus_url = 'https:\/\/jsuarezm.github.io\/blog\/Easy_Environments_Vagrant\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </article>
+    
+
+
+    </div>
+    
+<section id="sidebar">
+
+    
+        <section id="intro">
+            
+            
+                
+                    <a href="/" class="logo"><img src="/img/main/jesus2.JPG" alt="Jesús A. Suárez" /></a>
+                
+            
+            
+                <header>
+                    <h2>Jesús A. Suárez</h2>
+                    <p>Welcome to my blog <i class='fa fa-hand-spock-o'></i></p>
+                </header>
+            
+            <ul class="icons">
+                
+                
+                    
+<li><a href="//github.com/jsuarezm" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/jesusalbertosuarez" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/jsuarez_m" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
+
+
+
+
+                
+            </ul>
+        </section>
+
+    
+        <section id="recent-posts">
+            <ul class="posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+                    
+                
+
+                
+                    
+                
+
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="https://jsuarezm.github.io/blog/Easy_Environments_Vagrant/">Easy Development Environments using Vagrant</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2016-11-17'>
+                                    November 17, 2016</time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="https://jsuarezm.github.io/blog/Tear%20down%20the%20wall%20-%20the%20DevOps%20roadmap/">Tear down the Wall!</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime=
+                                    '2016-10-15'>
+                                    October 15, 2016</time>
+                            </header>
+                        </article>
+                    </li>
+                
+
+                
+                    <li>
+                        <ul class="actions">
+                            <li><a href=
+                            
+                                /blog/
+                            
+                            class="button">View more posts</a></li>
+                        </ul>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+    
+    
+    
+        <section id="categories">
+            <ul class="posts">
+                <header>
+                    <h3><a href="/categories/">Categories</a></h3>
+                </header>
+
+                
+                    
+                
+
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/devops/">DevOps</a>
+                                <span style="float:right;">2</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/howtos/">Howtos</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/roadmap/">Roadmap</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/vagrant/">Vagrant</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/virtualbox/">Virtualbox</a>
+                                <span style="float:right;">1</span>
+                            </header>
+                        </article>
+                    </li>
+                
+            </ul>
+        </section>
+    
+
+    
+        
+        <section class="blurb">
+            <h2>About</h2>
+            <p>IT and Security Professional. Devops Evangelist. Open source, ITIL, Agile, Kanban and Lean enthusiast</p>
+
+            <ul class="actions">
+                <li><a href="/about/" class="button">Learn More</a></li>
+            </ul>
+        </section>
+        
+
+    
+        <section id="footer">
+            <ul class="icons">
+                
+                
+                    
+<li><a href="//github.com/jsuarezm" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//linkedin.com/in/jesusalbertosuarez" target="_blank" title="LinkedIn" class="fa fa-linkedin"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/jsuarez_m" target="_blank" title="Twitter" class="fa fa-twitter"></a></li>
+
+
+
+
+                
+            </ul>
+
+            <p class="copyright">&copy; Jesús A. Suárez. Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a>. Ported by <a href="//github.com/jpescador" target="_blank">Julio Pescador</a>. Powered by <a href="//gohugo.io" target="_blank">Hugo</a></p>
+        </section>
+
+</section>
+
+            </div>
+        <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+        
+
+        
+        
+            
+        
+
+        
+        
+
+        
+            
+                
+                    <script src="/js/main.min.js"></script>
+                
+            
+        
+
+            
+            <script>hljs.initHighlightingOnLoad();</script>
+            
+    </body>
+</html>
+
